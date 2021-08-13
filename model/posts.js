@@ -12,6 +12,10 @@ module.exports = {
     newPosts(title, description) {
         this.posts.push({ id: genereateId(), title, description });
     },
+
+    deletePost(id) {
+        this.posts = this.posts.filter((post) => post.id !== id);
+    },
 };
 
 function genereateId() {

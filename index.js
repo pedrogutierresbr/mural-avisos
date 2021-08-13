@@ -21,4 +21,13 @@ app.post("/new", (req, res) => {
     res.send("Post adicionado com sucesso!");
 });
 
+//rota para deletar post
+app.delete("/delete", (req, res) => {
+    let id = req.body.id;
+
+    posts.deletePost(id);
+
+    res.send("Item deletado com sucesso!");
+});
+
 app.listen(port, () => console.log(`Servidor inicializado na porta ${port}`));
