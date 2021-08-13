@@ -1,20 +1,24 @@
 const express = require("express");
+const posts = require("./model/posts");
 
 const port = 3005;
 const app = express();
 
-let posts = [
-    { id: "1", title: "Teste 1", descricao: "Descrição do teste" },
-    { id: "2", title: "Teste 2", descricao: "Descrição do teste" },
-    { id: "3", title: "Teste 3", descricao: "Descrição do teste" },
-];
+app.use(express.json());
 
 //rota para buscar/pegar posts salvos
 app.get("/all", (req, res) => {
-    res.json(JSON.stringify(posts));
+    res.json(posts.getAll());
 });
 
 //rota para salvar novo post
-app.post("/new", (req, res) => {});
+app.post("/new", (req, res) => {
+    let title = req.body.title;
+    let description = req.body.description;
+
+    posts.newPosts(title, description);
+
+    res.send("Post adicionado com sucesso!");
+});
 
 app.listen(port, () => console.log(`Servidor inicializado na porta ${port}`));
