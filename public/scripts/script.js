@@ -47,8 +47,8 @@ function newPost() {
 }
 
 function deletePost(event) {
-    let id = event.target.parentNode.parentNode.id;
-
+    let id = event.target.parentElement.parentElement.id;
+    console.log(id);
     let post = { id: id };
 
     const options = {
