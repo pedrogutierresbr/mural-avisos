@@ -12,13 +12,13 @@ function updatePosts() {
 
             let posts = JSON.parse(json);
             posts.forEach((post) => {
-                let postElement = `<div class="card mb-4">
+                let postElement = `<div class="card mb-4" id=${post.id}>
                     <div class="card-header">
                         <h5 class="card-title">${post.title}</h5>
                     </div>
                     <div class="card-body d-flex justify-content-between align-items-center">
                         <div class="card-text">${post.description}</div>
-                        <button onclick="deletePost(event)" id=${post.id} class="btn btn-danger btn-deletar">Deletar</button>
+                        <button onclick="deletePost(event)" class="btn btn-danger btn-deletar">Deletar</button>
                     </div>
                 </div>`;
                 postElements += postElement;
@@ -47,7 +47,7 @@ function newPost() {
 }
 
 function deletePost(event) {
-    let id = event.target.id;
+    let id = event.target.parentNode.parentNode.id;
 
     let post = { id: id };
 
