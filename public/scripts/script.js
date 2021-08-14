@@ -12,12 +12,13 @@ function updatePosts() {
 
             let posts = JSON.parse(json);
             posts.forEach((post) => {
-                let postElement = `<div class="card mb-4" id=${post.id}>
+                let postElement = `<div class="card mb-4">
                     <div class="card-header">
                         <h5 class="card-title">${post.title}</h5>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body d-flex justify-content-between align-items-center">
                         <div class="card-text">${post.description}</div>
+                        <button onclick="deletePost(event)" id=${post.id} class="btn btn-danger btn-deletar">Deletar</button>
                     </div>
                 </div>`;
                 postElements += postElement;
@@ -45,4 +46,17 @@ function newPost() {
     });
 }
 
-function deletePost() {}
+function deletePost(event) {
+    let id = event.target.id;
+
+    let post = { id: id };
+
+    const options = {
+        method: "DELETE",
+        headers: new Headers({ "content-type": "application/json" }),
+        body: JSON.stringify(post),
+    };
+    fetch("http://localhost:3005/api/delete", options).then((res) => {
+        updatePosts();
+    });
+}

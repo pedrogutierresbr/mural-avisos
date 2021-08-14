@@ -1,5 +1,8 @@
 module.exports = {
-    posts: [{ id: "1", title: "Teste 1", description: "Descrição do teste" }],
+    posts: [
+        { id: "1", title: "Teste 1", description: "Descrição do teste" },
+        { id: "2", title: "Teste 2", description: "Descrição do teste" },
+    ],
 
     getAll() {
         return this.posts;
