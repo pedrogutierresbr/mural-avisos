@@ -4,7 +4,7 @@ const posts = require("../model/posts.js");
 
 //rota para buscar/pegar posts salvos
 router.get("/all", (req, res) => {
-    res.json(posts.getAll());
+    res.json(JSON.stringify(posts.getAll()));
 });
 
 //rota para salvar novo post

@@ -33,19 +33,18 @@
                     <label for="descricao" class="form-label">Descrição:</label>
                     <textarea
                         class="form-control"
-                        id="descricao"
+                        id="description"
                         rows="3"
                         placeholder="Digite a descrição do aviso"
                     ></textarea>
                 </div>
             </div>
 
-            <button onClick="newPost()"  class="btn btn-primary">Salvar</button>
+            <button id="btn-salvar" class="btn btn-primary">Salvar</button>
 
             <h2 class="mt-5 text-center">Mural</h2>
             <div id="posts"></div>
 
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script type="module" src="./scripts/script.js"></script>
+        <script src="./scripts/script.js"></script>
     </body>
 </html>
