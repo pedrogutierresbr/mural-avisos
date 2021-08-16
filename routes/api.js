@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const posts = require("../model/posts.js");
+const cors = require("cors");
+
+router.use(cors());
 
 //rota para buscar/pegar posts salvos
 router.get("/all", (req, res) => {
